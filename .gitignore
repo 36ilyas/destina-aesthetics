@@ -1,0 +1,14 @@
+# Arbeitsdateien, die nicht auf die Seite gehören
+uploads/
+.thumbnail
+/hero.jpg
+assets/hero.jpg
+assets/studio-front.png
+
+# Originale liegen als Kopie in design-source/
+/Destina Aesthetics.dc.html
+/support.js
+
+# Werkzeuge
+.claude/
+.playwright-mcp/

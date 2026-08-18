@@ -203,8 +203,41 @@ img { max-width: 100%; display: block; }
   display: flex;
   flex-direction: column;
   padding: clamp(18px, 4vw, 40px);
+  opacity: 0;
+  visibility: hidden;
+  /* visibility springt erst nach dem Ausblenden -- sonst waere das Menue
+     sofort weg und die Opacity-Transition unsichtbar. */
+  transition: opacity .3s ease, visibility 0s linear .3s;
 }
-.mobile-menu[hidden] { display: none; }
+.mobile-menu.is-open {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .3s ease, visibility 0s;
+}
+
+/* Inhalt gestaffelt einblenden, beim Schliessen zuegig gemeinsam raus.
+   Die Verzoegerungen haengen an .is-open, damit das Schliessen ohne
+   Staffelung laeuft und vor dem Overlay fertig ist. */
+.mobile-menu-top,
+.mobile-nav a,
+.mobile-menu-foot {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity .22s ease, transform .22s ease;
+}
+.mobile-menu.is-open .mobile-menu-top,
+.mobile-menu.is-open .mobile-nav a,
+.mobile-menu.is-open .mobile-menu-foot {
+  opacity: 1;
+  transform: none;
+  transition: opacity .5s ease, transform .6s var(--ease);
+}
+.mobile-menu.is-open .mobile-menu-top           { transition-delay: .05s; }
+.mobile-menu.is-open .mobile-nav a:nth-child(1) { transition-delay: .08s; }
+.mobile-menu.is-open .mobile-nav a:nth-child(2) { transition-delay: .13s; }
+.mobile-menu.is-open .mobile-nav a:nth-child(3) { transition-delay: .18s; }
+.mobile-menu.is-open .mobile-nav a:nth-child(4) { transition-delay: .23s; }
+.mobile-menu.is-open .mobile-menu-foot          { transition-delay: .28s; }
 
 .mobile-menu-top {
   display: flex;
@@ -729,5 +762,5 @@ img { max-width: 100%; display: block; }
   html { scroll-behavior: auto; }
   .hero-image, .hero-glow, .marquee-track { animation: none; }
   .js [data-reveal] { opacity: 1; transform: none; filter: none; transition: none; }
-  * { transition-duration: .01ms !important; }
+  * { transition-duration: .01ms !important; transition-delay: 0s !important; }
 }

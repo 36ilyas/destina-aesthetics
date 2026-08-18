@@ -17,17 +17,23 @@
   var menu = document.getElementById('mobile-menu');
   var close = document.getElementById('menu-close');
 
+  function isOpen() {
+    return !!menu && menu.classList.contains('is-open');
+  }
+
   function openMenu() {
     if (!menu) return;
-    menu.hidden = false;
+    menu.classList.add('is-open');
     document.body.style.overflow = 'hidden';
     if (toggle) toggle.setAttribute('aria-expanded', 'true');
+    /* Reflow erzwingen, damit visibility:visible steht, bevor fokussiert wird. */
+    void menu.offsetWidth;
     if (close) close.focus();
   }
 
   function closeMenu() {
     if (!menu) return;
-    menu.hidden = true;
+    menu.classList.remove('is-open');
     document.body.style.overflow = '';
     if (toggle) {
       toggle.setAttribute('aria-expanded', 'false');
@@ -43,7 +49,7 @@
     });
   }
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && menu && !menu.hidden) closeMenu();
+    if (e.key === 'Escape' && isOpen()) closeMenu();
   });
 
   /* --- Reveal on scroll ------------------------------------------------- */

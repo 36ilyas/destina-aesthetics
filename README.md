@@ -46,11 +46,11 @@ unverändert. Die Quelldatei liegt zur Referenz in `design-source/`.
 
 - `assets/img/hero.jpg` — Foto des Studios (aus dem Projektordner, von 2,5 MB auf
   377 KB optimiert).
-- `assets/img/studio.jpg` — **Platzhalter-Stockfoto** von
-  [Unsplash](https://unsplash.com/photos/dfd03ed5d881) (Unsplash-Lizenz, freie
-  kommerzielle Nutzung). Im ursprünglichen Entwurf stand hier nochmals das
-  Hero-Bild. Sobald ein eigenes Behandlungsfoto vorliegt, einfach die Datei
-  gleichen Namens ersetzen.
+- `assets/img/studio.jpg` — **Platzhalter-Stockfoto** von Unsplash
+  (Unsplash-Lizenz, freie kommerzielle Nutzung, keine Namensnennung nötig).
+  Quelle: <https://images.unsplash.com/photo-1570172619644-dfd03ed5d881>
+  Im ursprünglichen Entwurf stand hier nochmals das Hero-Bild. Sobald ein
+  eigenes Behandlungsfoto vorliegt, einfach die Datei gleichen Namens ersetzen.
 
 ## Offene Punkte
 

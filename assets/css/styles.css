@@ -121,12 +121,12 @@ img { max-width: 100%; display: block; }
   inset: 0 0 auto 0;
   z-index: 80;
   border-bottom: 1px solid transparent;
-  transition: background .5s ease, backdrop-filter .5s ease, border-color .5s ease;
+  transition: background .5s ease, border-color .5s ease;
 }
+/* Deckend statt Milchglas: ein backdrop-filter wuerde jeden Inhalt, der unter
+   der Kopfzeile durchscrollt, weichzeichnen. */
 .site-header.is-scrolled {
-  background: rgba(12, 11, 10, .82);
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
+  background: var(--bg);
   border-bottom-color: var(--line);
 }
 
